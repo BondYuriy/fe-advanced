@@ -1,42 +1,45 @@
 "use strict";
 
 const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
-const userInput = prompt("Введите логин от 4-х до 16-ти символов");
+const login = prompt("Введите логин от 4-х до 16-ти символов");
 
-const addLogin = function(logins, login) {
+const heckLoginValidity = login => {
   let isValidInput;
+  if (login.length >= 4 && login.length <= 16) {
+    isValidInput = true;
+  } else {
+    isValidInput = false;
+  }
+  return isValidInput;
+};
+
+const checkIfLoginExists = (logins, login) => {
   let resultChecking;
+  resultChecking = logins.includes(login);
+  return resultChecking;
+};
+
+const addLogin = function (logins, login) {
   let resultAddLogin;
 
-  const heckLoginValidity = login => {
-    if (userInput.length >= 4 && userInput.length <= 16) {
-      isValidInput = true;
-    } else {
-      isValidInput = false;
-    }
-    return isValidInput;
-  };
   heckLoginValidity(login);
-
-  if (isValidInput === false) {
+  const result = heckLoginValidity(login);
+  if (result) {
+    checkIfLoginExists(logins, login);
+  } else {
     return alert("Ошибка! Логин должен быть от 4 до 16 символов");
   }
 
-  if (isValidInput === true) {
-    const checkIfLoginExists = (logins, login) => {
-      resultChecking = logins.includes(userInput);
-      return resultChecking;
-    };
-    checkIfLoginExists(logins, login);
-  }
-
-  if (resultChecking === false) {
-    logins.push(userInput);
-    resultAddLogin = alert("Логин успешно добавлен!");
-  } else {
+  const resultChecking = checkIfLoginExists(logins, login);
+  if (resultChecking) {
     resultAddLogin = alert("Такой логин уже используется!");
+  } else {
+    logins.push(login);
+    resultAddLogin = alert("Логин успешно добавлен!");
   }
   return resultAddLogin;
 };
 
-addLogin(logins, userInput);
+addLogin(logins, login);
+
+console.log(logins);
