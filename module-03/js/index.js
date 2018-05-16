@@ -21,25 +21,21 @@ const checkIfLoginExists = (logins, login) => {
 
 const addLogin = function (logins, login) {
   let resultAddLogin;
-
-  heckLoginValidity(login);
   const result = heckLoginValidity(login);
   if (result) {
-    checkIfLoginExists(logins, login);
-  } else {
-    return alert("Ошибка! Логин должен быть от 4 до 16 символов");
+    const resultChecking = checkIfLoginExists(logins, login);
+    if (resultChecking) {
+      resultAddLogin = alert("Такой логин уже используется!");
+    } else {
+      logins.push(login);
+      resultAddLogin = alert("Логин успешно добавлен!");
+    }
   }
-
-  const resultChecking = checkIfLoginExists(logins, login);
-  if (resultChecking) {
-    resultAddLogin = alert("Такой логин уже используется!");
-  } else {
-    logins.push(login);
-    resultAddLogin = alert("Логин успешно добавлен!");
+  else {
+    return alert("Ошибка! Логин должен быть от 4 до 16 символов");
   }
   return resultAddLogin;
 };
 
 addLogin(logins, login);
-
 console.log(logins);
