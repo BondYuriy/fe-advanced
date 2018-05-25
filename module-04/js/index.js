@@ -11,16 +11,16 @@ const products = {
     candy: 25
 };
 
-function Cashier(name, products, totalPrice = 0, customerMoney = 0, changeAmount = 0) {
+function Cashier(name, products) {
     this.name = name;
     this.products = products;
-    this.totalPrice = totalPrice;
-    this.customerMoney = customerMoney;
-    this.changeAmount = changeAmount;
+    this.totalPrice = 0;
+    this.customerMoney = 0;
+    this.changeAmount = 0;
     this.countTotalPrice = function (order) {
         let sum;
         for (let key in order) {
-            sum = order[key] * products[key];
+            sum = order[key] * this.products[key];
             this.totalPrice += sum;
         }
     };
