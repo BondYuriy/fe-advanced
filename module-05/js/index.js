@@ -1,9 +1,24 @@
 "use strict";
 
 const initialUsers = [
-  { id: "-s19a6hqce", login: "mangozedog@mail.com", password: "qwe123zv", isActive: true },
-  { id: "-qkpzenjxe", login: "polysweet@skynet.ze", password: "123zxc78", isActive: true },
-  { id: "-e51cpd4di", login: "ajax2k@change.ua", password: "ert234qw", isActive: false }
+  {
+    id: "-s19a6hqce",
+    login: "mangozedog@mail.com",
+    password: "qwe123zv",
+    isActive: true
+  },
+  {
+    id: "-qkpzenjxe",
+    login: "polysweet@skynet.ze",
+    password: "123zxc78",
+    isActive: true
+  },
+  {
+    id: "-e51cpd4di",
+    login: "ajax2k@change.ua",
+    password: "ert234qw",
+    isActive: false
+  }
 ];
 
 const initialPosts = {
@@ -19,38 +34,41 @@ const initialPosts = {
   "-e51cpd4di": [
     { id: "-9y6nkmlj4", text: "post #1", likes: 18 },
     { id: "-i03pbhy3s", text: "post #2", likes: 45 }
-  ],
+  ]
 };
 
 const newUser = {
-  login: "alex@mail.com", password: "123456"
-}
+  login: "alex@mail.com",
+  password: "123456"
+};
 
-const getId = () => "-" + Math.random().toString(36).substr(2, 9);
+const getId = () =>
+  "-" +
+  Math.random()
+    .toString(36)
+    .substr(2, 9);
 
 function SocialBook(users = [], posts = {}) {
-  this.users,
-    this.posts,
-    this.getAllUsers = () => users.map(user => user);
-  this.getUserByLogin = login => users.find(user => user.login === login);
+  this.users = users;
+  this.posts = posts;
+  this.getAllUsers = () => this.users.map(user => user);
+  this.getUserByLogin = login => this.users.find(user => user.login === login);
   this.getUserStatus = userId => {
-    const searchById = users.find(user => user.id === userId);
+    const searchById = this.users.find(user => user.id === userId);
     if (searchById.isActive) {
-      return 'active';
+      return "active";
     }
-    return 'inactive';
-  }
+    return "inactive";
+  };
   this.addUser = user => {
     user.id = getId();
     user.isActive = false;
-    users.push(user);
+    this.users.push(user);
   };
   this.removeUserById = userId => {
-    const searchById = users.find(user => user.id === userId);
-    const userIndex = users.indexOf(searchById); // не додумал как добавить в метод
-    users.splice(userIndex, 1);
-  }
-  this.getUsersCount = () => users.reduce((acc, value) => acc + 1, 0);
+    this.users = this.users.filter(user => user.id !== userId);
+  };
+  this.getUsersCount = () => this.users.reduce((acc, value) => acc + 1, 0);
 }
 
 const book = new SocialBook(initialUsers, initialPosts);
@@ -59,6 +77,6 @@ const book = new SocialBook(initialUsers, initialPosts);
 console.log(book.getAllUsers());
 console.log(book.getUserByLogin("mangozedog@mail.com"));
 console.log(book.getUserStatus("-e51cpd4di"));
-console.log(book.addUser(newUser), initialUsers);
-console.log(book.removeUserById("-e51cpd4di"), initialUsers);
+console.log(book.addUser(newUser));
+console.log("removeUserById:", book.removeUserById("-e51cpd4di"));
 console.log(book.getUsersCount());
