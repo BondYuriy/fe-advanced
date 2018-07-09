@@ -23,7 +23,7 @@ class Hamburger {
    * @memberof Hamburger
    */
   addTopping(topping) {
-    if (this.toppings !== topping) {
+    if (!this.toppings.includes(topping)) {
       this.toppings.push(topping);
     }
   }
@@ -75,7 +75,7 @@ class Hamburger {
     const priceTopping = this.toppings.reduce((acc, topping) => { return acc + Hamburger.TOPPINGS[topping].price }, 0);
     return priceSize + priceStuffing + priceTopping;
   }
-  
+
   /**
    *Узнать калорийность.
    * @returns {Number} - Калорийность в калориях   
