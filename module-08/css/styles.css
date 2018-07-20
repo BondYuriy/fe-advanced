@@ -15,9 +15,10 @@
   margin-bottom: 15px;
 }
 
-.fullview img{
+.fullview img {
   display: block;
-  width: 100%;
+  width: 800px;
+  height: 533.125px;
   box-shadow: 0px 1px 7px 5px rgba(180, 78, 201, 0.7);
 }
 
@@ -29,7 +30,6 @@
 
 .preview li {
   flex: 0 0 6;
-  
 }
 
 .preview img {
