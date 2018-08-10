@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #414141;
+}
+
+.container {
+  width: 1200px;
+  min-height: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.form {
+  width: 160px;
+  height: 330px;
+  padding: 5px;
+  border: 1px  solid #dddddd;
+  position: fixed;
+}
+
+.form ul {
+  list-style: none;
+  margin-bottom: 15px;
+}
+.form button {
+  border: 0;
+  width: 71px;
+  height: 25px;
+  background-color: turquoise;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #414141;
+}
+
+.cards {
+  padding-left: 170px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px  solid #dddddd;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+.card-img {
+  flex:  0 0 50%;
+  display: block;
+  padding: 5px;
+  border: 1px  solid #dddddd;
+}
+
+.card-info {
+ flex: 0 0 40%;
+}
+
+.card-info-title {
+  margin-bottom: 10px;
+}
+
+.card-info-price {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
