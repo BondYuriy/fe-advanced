@@ -38,27 +38,27 @@ class Post {
     const post = document.createElement("div");
     post.classList.add("post");
 
-    const createPostImg = document.createElement("img");
-    createPostImg.classList.add("post__image");
-    createPostImg.setAttribute("src", `${item.img}`);
+    const postImg = document.createElement("img");
+    postImg.classList.add("post__image");
+    postImg.setAttribute("src", `${item.img}`);
 
-    const creatPostTitle = document.createElement("h2");
-    creatPostTitle.classList.add("post__title");
-    creatPostTitle.textContent = `${item.title}`;
+    const postTitle = document.createElement("h2");
+    postTitle.classList.add("post__title");
+    postTitle.textContent = `${item.title}`;
 
-    const createPostText = document.createElement("p");
-    createPostText.classList.add("post__text");
-    createPostText.textContent = `${item.text}`;
+    const postText = document.createElement("p");
+    postText.classList.add("post__text");
+    postText.textContent = `${item.text}`;
 
-    const createButtonPost = document.createElement("a");
-    createButtonPost.classList.add("button");
-    createButtonPost.setAttribute("href", `${item.link}`);
-    createButtonPost.textContent = "Read more";
+    const postBtn = document.createElement("a");
+    postBtn.classList.add("button");
+    postBtn.setAttribute("href", `${item.link}`);
+    postBtn.textContent = "Read more";
     post.append(
-      createPostImg,
-      creatPostTitle,
-      createPostText,
-      createButtonPost
+      postImg,
+      postTitle,
+      postText,
+      postBtn
     );
     return post;
   }
