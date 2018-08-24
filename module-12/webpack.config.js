@@ -1,7 +1,7 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('C:/Users/ADMIN/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/html-webpack-plugin');
-const MiniCssExtractPlugin = require("C:/Users/ADMIN/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/mini-css-extract-plugin");
-const CleanWebpackPlugin = require('C:/Users/ADMIN/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: ['babel-polyfill', './src/index.js'],

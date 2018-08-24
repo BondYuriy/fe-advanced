@@ -24,43 +24,45 @@ const posts = [
   }
 ];
 
-const createCards = function (posts) {
-  posts.forEach(element => {
-    createPostCard(element);
-  });
-};
+class Post {
+  constructor(items) {
+    this.items = items;
+    this.body = document.querySelector("body");
+  }
 
-const createPostCard = function (obj) {
-  const body = document.querySelector("body");
+  createCards() {
+    this.items.forEach(item => this.body.append(this.createPostCard(item)));
+  }
 
-  const createPost = document.createElement("div");
-  createPost.classList.add("post");
-  body.prepend(createPost);
+  createPostCard(item) {
+    const post = document.createElement("div");
+    post.classList.add("post");
 
-  const post = document.querySelector(".post");
+    const createPostImg = document.createElement("img");
+    createPostImg.classList.add("post__image");
+    createPostImg.setAttribute("src", `${item.img}`);
 
-  const createPostImg = document.createElement("img");
-  createPostImg.classList.add("post__image");
-  createPostImg.setAttribute("src", `${obj.img}`);
+    const creatPostTitle = document.createElement("h2");
+    creatPostTitle.classList.add("post__title");
+    creatPostTitle.textContent = `${item.title}`;
 
-  const creatPostTitle = document.createElement("h2");
-  creatPostTitle.classList.add("post__title");
-  creatPostTitle.textContent = `${obj.title}`;
+    const createPostText = document.createElement("p");
+    createPostText.classList.add("post__text");
+    createPostText.textContent = `${item.text}`;
 
-  const createPostText = document.createElement("p");
-  createPostText.classList.add("post__text");
-  createPostText.textContent = `${obj.text}`;
+    const createButtonPost = document.createElement("a");
+    createButtonPost.classList.add("button");
+    createButtonPost.setAttribute("href", `${item.link}`);
+    createButtonPost.textContent = "Read more";
+    post.append(
+      createPostImg,
+      creatPostTitle,
+      createPostText,
+      createButtonPost
+    );
+    return post;
+  }
+}
 
-  const createButtonPost = document.createElement("a");
-  createButtonPost.classList.add("button");
-  createButtonPost.setAttribute("href", `${obj.link}`);
-  createButtonPost.textContent = "Read more";
-  return post.prepend(
-    createPostImg,
-    creatPostTitle,
-    createPostText,
-    createButtonPost
-  );
-};
-
-createCards(posts);
+const post = new Post(posts);
+post.createCards();
