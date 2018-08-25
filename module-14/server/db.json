@@ -1,0 +1,36 @@
+{
+  "notes": [
+    {
+      "text": "https://github.com/",
+      "id": 5
+    },
+    {
+      "text": "https://developer.mozilla.org",
+      "id": 6
+    },
+    {
+      "text": "https://codepen.io",
+      "id": 7
+    },
+    {
+      "text": "https://www.npmjs.com/",
+      "id": 8
+    },
+    {
+      "text": "https://reactjs.org/",
+      "id": 9
+    },
+    {
+      "text": "https://redux.js.org/",
+      "id": 10
+    },
+    {
+      "text": "https://webpack.js.org/",
+      "id": 11
+    },
+    {
+      "text": "http://devdocs.io/",
+      "id": 12
+    }
+  ]
+}
