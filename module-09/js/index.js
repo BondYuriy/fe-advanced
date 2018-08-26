@@ -72,7 +72,7 @@ resetBtn.addEventListener('click', () => {
 });
 
 function updateClockface(time) {
-  stopwatch.isActive ? clockface.textContent = getFormattedTime(time) : clockface.textContent = '00:00.0';
+  clockface.textContent = stopwatch.isActive ? getFormattedTime(time) : '00:00.0';
 }
 
 function getFormattedTime(time) {
