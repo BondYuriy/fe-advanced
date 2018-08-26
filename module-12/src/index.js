@@ -9,7 +9,7 @@ const submitUrlBtn = document.querySelector('.js-url-btn');
 const formUrl = document.querySelector('.js-form');
 const list = document.querySelector('.js-list');
 const persistedUrl = storage.get();
-const fetchUrl = persistedUrl ? persistedUrl : [];
+let fetchUrl = persistedUrl ? persistedUrl : [];
 
 getStorage();
 submitUrlBtn.addEventListener('click', addUrl);
@@ -36,7 +36,9 @@ function addUrl(evt) {
 
 function removeCard() {
   if (event.target.nodeName === 'BUTTON') {
+    const delUrl = event.target.previousElementSibling.getAttribute("href");
     event.target.parentNode.remove();
-    // localStorage.removeItem('storage-url'); //Из-за того, что массив имеет один ключ, при удаление удаляется весь массив
+    fetchUrl = fetchUrl.filter(item => item.url !== delUrl);
+    storage.set(fetchUrl);
   }
 }
